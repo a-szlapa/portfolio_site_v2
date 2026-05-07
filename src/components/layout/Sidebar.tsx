@@ -4,17 +4,17 @@ import Link from "next/link";
 import {useEffect, useState} from "react";
 export default function Sidebar() {
   return (
-    <div className="flex flex-col h-full w-auto border-r-2 border-sidebar-border justify-between p-15 absolute">
+    <div className="flex flex-col h-full w-2/8 border-r-2 border-sidebar-border justify-between p-15">
       <div>
-        <h1 className="text-5xl font-semibold my-2">Aleksy Szłapa</h1>
-        <h2 className="text-2xl font-semibold text-primary">Web Developer</h2>
-        <h2 className="text-2xl font-semibold text-card">Poland, Lublin</h2>
+        <h1 className="text-6xl font-semibold my-2">Aleksy Szłapa</h1>
+        <h2 className="text-3xl font-semibold text-primary">Web Developer</h2>
+        <h2 className="text-3xl font-semibold text-card">Poland, Lublin</h2>
       </div>
 
       <div className="space-y-4 flex flex-col text-3xl">
         <a
-          href="#about"
-          className="hover:text-primary text-card font-semibold transition-colors duration-100"
+          href="#projects"
+          className="hover:text-primary text-card font-semibold transition-colors duration-100 w-fit"
         >
           * Projects <br />
           <div className="w-[1ch] h-px inline-block"></div>& Experience
@@ -22,7 +22,7 @@ export default function Sidebar() {
 
         <a
           href="#contact"
-          className="hover:text-primary text-card font-semibold transition-colors duration-100"
+          className="hover:text-primary text-card font-semibold transition-colors duration-100 w-fit"
         >
           * Contact
         </a>
@@ -30,7 +30,7 @@ export default function Sidebar() {
 
       <div className="flex">
         <Link
-          href="https://github.com/yolocat-dev"
+          href="https://github.com/a-szlapa"
           target="_blank"
           rel="noopener noreferrer"
           className="flex flex-row items-end gap-4 hover:text-primary text-card transition-colors duration-100 text-3xl font-semibold"
@@ -55,7 +55,7 @@ export default function Sidebar() {
             />
           </svg>
           <span>
-            yolocat-dev
+            a-szlapa
           </span>
         </Link>
       </div>
