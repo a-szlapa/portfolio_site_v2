@@ -51,13 +51,13 @@ body {
   --background: theme(color.zinc.950);
   --foreground: theme(color.slate.50);
 
-  --card: theme(color.slate.700);
+  --card: theme(color.slate.500);
   --card-foreground: theme(color.slate.50);
 
   --popover: theme(color.slate.700);
   --popover-foreground: theme(color.slate.50);
 
-  --primary: theme(color.slate.500);
+  --primary: theme(color.slate.400);
   --primary-foreground: theme(color.slate.50);
 
   --secondary: theme(color.slate.500);
