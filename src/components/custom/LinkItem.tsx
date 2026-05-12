@@ -5,12 +5,19 @@ import Image from "next/image";
 export interface LinkTypes {
   domain: string;
   name: string;
-  icon: string;       // path to the default SVG
-  hoverIcon: string;  // path to the hover SVG
+  icon: string;
+  hoverIcon: string;
 }
 
+type LinkType =
+  | string
+  | {
+      url: string;
+      display_name: string;
+    };
+
 interface LinkItemProps {
-  link: string;
+  link: LinkType;
 }
 
 const LinkItem: React.FC<LinkItemProps> = ({ link }) => {
@@ -65,8 +72,13 @@ const LinkItem: React.FC<LinkItemProps> = ({ link }) => {
     },
   ];
 
+  // Normalize link data
+  const url = typeof link === "string" ? link : link.url;
+  const customDisplayName =
+    typeof link === "string" ? null : link.display_name;
+
   const item =
-    known_link_layouts.find((l) => link.includes(l.domain)) ??
+    known_link_layouts.find((l) => url.includes(l.domain)) ??
     ({
       domain: "",
       name: "Visit Website",
@@ -74,31 +86,34 @@ const LinkItem: React.FC<LinkItemProps> = ({ link }) => {
       hoverIcon: "/icons/external-hover.svg",
     } as LinkTypes);
 
+  // Use display_name if provided
+  const displayName = customDisplayName ?? item.name;
+
   return (
     <Link
-      href={link}
+      href={url}
       target="_blank"
       rel="noopener noreferrer"
       className="group flex flex-row items-center gap-4 border-2 rounded-2xl border-border hover:border-accent px-4 py-2 w-fit h-fit text-lg text-primary hover:text-foreground"
     >
-      {/* Show one image by default, swap on hover */}
       <span className="relative w-7 h-7 flex items-center justify-center">
         <Image
           src={item.icon}
-          alt={`${item.name} icon`}
+          alt={`${displayName} icon`}
           width={28}
           height={28}
           className="absolute opacity-100 group-hover:opacity-0"
         />
         <Image
           src={item.hoverIcon}
-          alt={`${item.name} hover icon`}
+          alt={`${displayName} hover icon`}
           width={28}
           height={28}
           className="absolute opacity-0 group-hover:opacity-100"
         />
       </span>
-      <span className="capitalize">{item.name}</span>
+
+      <span className="capitalize">{displayName}</span>
     </Link>
   );
 };
