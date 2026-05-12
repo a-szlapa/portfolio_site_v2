@@ -7,15 +7,9 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import LinkItem from "./LinkItem";
+import { Project } from "@/app/page";
 
-interface Project {
-  timeFrame: string;
-  name: string;
-  images: string[];
-  description: string;
-  links: string[];
-  tags: string[];
-}
+
 
 const ProjectItem: React.FC<{ project: Project }> = ({ project }) => {
   const hasImages = project.images.length > 0;

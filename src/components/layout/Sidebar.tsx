@@ -1,8 +1,18 @@
 "use client";
 
 import Link from "next/link";
-import {useEffect, useState} from "react";
-export default function Sidebar() {
+import { RefObject } from "react";
+
+type SidebarProps = {
+  refs?: RefObject<HTMLElement | null>[];
+};
+
+export default function Sidebar({ refs }: SidebarProps) {
+  const items = [
+    { label: "* Projects <br /><div class='w-[1ch] h-px inline-block'></div>& Experience" },
+    { label: "* Contact" },
+  ];
+
   return (
     <div className="flex flex-col h-full w-2/8 border-r-2 border-sidebar-border justify-between p-15">
       <div>
@@ -12,20 +22,16 @@ export default function Sidebar() {
       </div>
 
       <div className="space-y-4 flex flex-col text-3xl">
-        <a
-          href="#projects"
-          className="hover:text-primary text-card font-semibold transition-colors duration-100 w-fit"
-        >
-          * Projects <br />
-          <div className="w-[1ch] h-px inline-block"></div>& Experience
-        </a>
-
-        <a
-          href="#contact"
-          className="hover:text-primary text-card font-semibold transition-colors duration-100 w-fit"
-        >
-          * Contact
-        </a>
+        {items.map((item, index) => (
+          <button
+            key={index}
+            onClick={() => {
+              refs?.[index]?.current?.scrollIntoView({ behavior: "smooth" });
+            }}
+            className="hover:text-primary text-card font-semibold transition-colors duration-100 w-fit text-left"
+            dangerouslySetInnerHTML={{ __html: item.label }}
+          />
+        ))}
       </div>
 
       <div className="flex">
@@ -54,9 +60,7 @@ export default function Sidebar() {
               0 1.304.89 2.853 3.316 2.364 19.412-6.52 33.405-24.935 33.405-46.691C97.707 22 75.788 0 48.854 0z"
             />
           </svg>
-          <span>
-            a-szlapa
-          </span>
+          <span>a-szlapa</span>
         </Link>
       </div>
     </div>

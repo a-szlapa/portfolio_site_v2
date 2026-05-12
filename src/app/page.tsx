@@ -17,7 +17,6 @@ export interface Project {
   links: LinkType[];
   tags: string[];
 }
-
 export default function Home() {
   const projects: Project[] = [
     {
@@ -120,9 +119,12 @@ export default function Home() {
     },
   ];
 
+  const projectsRef = useRef<HTMLDivElement | null>(null);
+  const contactRef = useRef<HTMLDivElement | null>(null);
+
   return (
     <div className="flex h-screen overflow-hidden bg-background">
-      <Sidebar />
+      <Sidebar refs={[projectsRef, contactRef]} />
       <main className="flex-1 overflow-y-auto">
         <div className="max-w-4xl p-8" id="projects" ref={projectsRef}>
           <div>
