@@ -1,17 +1,9 @@
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
+import ImageCarousel from "./ImageCarousel";
 import LinkItem from "./LinkItem";
 import TimelineRow from "./TimelineRow";
 import { Project } from "@/lib/types";
 
 const ProjectItem: React.FC<{ project: Project }> = ({ project }) => {
-  const hasImages = project.images.length > 0;
-
   return (
     <TimelineRow>
       <div className="mb-10 w-full">
@@ -20,33 +12,7 @@ const ProjectItem: React.FC<{ project: Project }> = ({ project }) => {
         </span>
         <h2 className="font-semibold text-4xl">{project.name}</h2>
 
-        {hasImages && project.images.length === 1 && (
-          <div className="w-full">
-            <img
-              className="rounded-lg mt-4 w-full"
-              src={project.images[0]}
-              alt={`${project.name} screenshot`}
-            />
-          </div>
-        )}
-
-        {hasImages && project.images.length > 1 && (
-          <Carousel className="w-full">
-            <CarouselContent className="w-full">
-              {project.images.map((imgUrl, idx) => (
-                <CarouselItem key={imgUrl} className="w-full">
-                  <img
-                    className="rounded-lg mt-4 w-full"
-                    src={imgUrl}
-                    alt={`${project.name} screenshot ${idx + 1}`}
-                  />
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious className="hover:text-foreground"/>
-            <CarouselNext  className="hover:text-foreground"/>
-          </Carousel>
-        )}
+        <ImageCarousel images={project.images} alt={project.name} />
 
         <p className="text-xl max-w-[100ch] my-4 mb-6">{project.description}</p>
         <div className="flex flex-row flex-wrap max-w-[70ch] items-center gap-2">
