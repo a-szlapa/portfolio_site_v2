@@ -3,7 +3,7 @@ import TimelineRow from "@/components/custom/TimelineRow";
 
 const ContactSection: React.FC = () => {
   return (
-    <div className="max-w-4xl p-8">
+    <div className="max-w-4xl p-8" id="contact">
       <SectionHeader title="Contact" />
       <div>
         <TimelineRow lineSpacingClassName="mx-10 ml-10">

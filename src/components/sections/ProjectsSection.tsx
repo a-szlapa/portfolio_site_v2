@@ -4,7 +4,7 @@ import { projects } from "@/lib/projects";
 
 const ProjectsSection: React.FC = () => {
   return (
-    <div className="max-w-4xl p-8">
+    <div className="max-w-4xl p-8" id="projects">
       <SectionHeader title="Projects & Experience" />
       <div>
         {projects.map((project) => (

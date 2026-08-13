@@ -5,7 +5,9 @@ body {
   min-height: 100vb;
   min-width: 100%;
   color-scheme: dark;
+  scroll-behavior: smooth;
 }
+
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);

@@ -43,8 +43,8 @@ const ProjectItem: React.FC<{ project: Project }> = ({ project }) => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
+            <CarouselPrevious className="hover:text-foreground"/>
+            <CarouselNext  className="hover:text-foreground"/>
           </Carousel>
         )}
 
