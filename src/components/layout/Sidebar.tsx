@@ -14,7 +14,7 @@ export default function Sidebar() {
     <div className="flex flex-col h-full w-2/8 border-r-2 border-sidebar-border justify-between p-15">
       <div>
         <h1 className="text-6xl font-semibold my-2">Aleksy Szłapa</h1>
-        <h2 className="text-3xl font-semibold text-primary">Web Developer</h2>
+        <h2 className="text-3xl font-semibold text-primary">Web Developer | Graphic Designer</h2>
         <h2 className="text-3xl font-semibold text-card">Poland, Lublin</h2>
       </div>
 
