@@ -4,10 +4,10 @@ html,
 body {
   min-height: 100vb;
   min-width: 100%;
-  @media (prefers-color-scheme: dark) {
-    color-scheme: light;
-  }
+  color-scheme: dark;
+  scroll-behavior: smooth;
 }
+
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
